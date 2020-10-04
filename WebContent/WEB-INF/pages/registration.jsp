@@ -8,12 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link href="<c:url value="/resources/css/application.css" />" rel="stylesheet">
 <title>Welcome to Space-sta</title>
 </head>
 <body>
-	<h2>Login</h2>
+	<h2>Registration</h2>
 	
-		<form:form action="login" method="post" modelAttribute="user">
+		<form:form action="registration" method="post" modelAttribute="user">
 		<table>
 			<tr>
 				<td><form:label path="">Username: </form:label></td>
@@ -23,11 +25,27 @@
 				<td><form:label path="">Password: </form:label></td>
 				<td><form:input type="password" path="password"/><form:errors path="password"></form:errors></td>
 			</tr>
+			<tr>
+				<td><form:label path="">First Name: </form:label></td>
+				<td><form:input path="firstname"/><form:errors path="firstname"></form:errors></td>
+			</tr>
+			<tr>
+				<td><form:label path="">Last Name: </form:label></td>
+				<td><form:input path="lastname"/><form:errors path="lastname"></form:errors></td>
+			</tr>
+			<tr>
+				<td><form:label path="">Email: </form:label></td>
+				<td><form:input path="email"/><form:errors path="email"></form:errors></td>
+			</tr>
+			<tr>
+				<td><form:label path="">Phone #: </form:label></td>
+				<td><form:input path="phonenumber"/><form:errors path="phonenumber"></form:errors></td>
+			</tr>
 		</table>
 		<input type="submit" value="Submit" /><br>
 	</form:form>
 
-	Don't have an account? Register <a href="registration">here</a>!
+	Already have an account? Login <a href="login">here</a>!
 	
 </body>
 </html>

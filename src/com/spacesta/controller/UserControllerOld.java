@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spacesta.model.User;
+import com.spacesta.models.User;
 
 @Controller
 
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/userVoid")
+public class UserControllerOld {
 	
 	@RequestMapping(path ="/register", method = RequestMethod.GET)
  public ModelAndView displayRegister() {
@@ -29,7 +29,7 @@ public class UserController {
 public ModelAndView Register(@Valid@ModelAttribute("user") User user, BindingResult result) {
 	if(result.hasErrors())
 	{
-	return new ModelAndView("register", "user", user);	
+	return new ModelAndView("regist", "user", user);	
 	}
 	else
 	{

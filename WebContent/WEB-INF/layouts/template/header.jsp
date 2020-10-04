@@ -23,10 +23,10 @@
         <a class="nav-link" href="/Spacesta/home">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Spacesta/user/login">Login</a>
+        <a class="nav-link" href="login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Spacesta/user/register">Register</a>
+        <a class="nav-link" href="registration">Register</a>
       </li>
     </ul>
   </div>
