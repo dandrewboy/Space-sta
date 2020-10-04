@@ -15,24 +15,40 @@ import com.spacesta.model.User;
 
 @RequestMapping("/user")
 public class UserController {
-	@RequestMapping(path = "/adduser", method = RequestMethod.POST)
 	
-	public ModelAndView addUser(@Valid@ModelAttribute("user") User user, BindingResult result)
-	{
-		if(result.hasErrors())
-		{
-		 return new ModelAndView("addUser", "user", user);
-		}
-		else
-		{
-		return new ModelAndView("displayUsers","user",user);	
-		}
-	}
-	
-	@RequestMapping(path ="/add", method = RequestMethod.GET)
- public ModelAndView displayForm() {
-	 return new ModelAndView("header", "user", new User());
+	@RequestMapping(path ="/register", method = RequestMethod.GET)
+ public ModelAndView displayRegister() {
+	 return new ModelAndView("register", "user", new User());
  }
+@RequestMapping(path = "/login", method = RequestMethod.GET)
+	public ModelAndView displayLogin()
+	{
+		return new ModelAndView("login", "user", new User());
+	}
+@RequestMapping(path ="/processlogin", method = RequestMethod.POST) 
+public ModelAndView Register(@Valid@ModelAttribute("user") User user, BindingResult result) {
+	if(result.hasErrors())
+	{
+	return new ModelAndView("register", "user", user);	
+	}
+	else
+	{
+		return new ModelAndView("loginSuccess", "user", user);
+	}
+}
+@RequestMapping(path = "/processregister", method = RequestMethod.POST)
+public ModelAndView Login(@Valid@ModelAttribute("user") User user, BindingResult result) {
+	if(result.hasErrors())
+	{
+		return new  ModelAndView("register", "user", user);
+	}
+	else
+	{
+		return new ModelAndView("registerSuccess", "user", user);
+}
+	
+}
+
 	
 
  
