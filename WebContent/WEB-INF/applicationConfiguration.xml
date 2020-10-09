@@ -43,7 +43,7 @@
 
     <bean id="datasource" destroy-method="close" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
-        <property name="url" value="jdbc:derby:/Users/bradl/MyDB" />
+        <property name="url" value="jdbc:derby:C:\Users\littl\MyDB" />
         <property name="username" value="admin" />
         <property name="password" value="password" />
     </bean>

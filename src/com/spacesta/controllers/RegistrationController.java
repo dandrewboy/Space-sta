@@ -29,12 +29,22 @@ public class RegistrationController {
 		System.out.println("Password: " + user.getPassword());
 
 		if (result.hasErrors()) {
+		  
 			return new ModelAndView("registration", "user", user);
 		}
 		
 		//This is temp (used for testing)
 		else {
-			userService.register(user);
+			boolean check = userService.checkRegister(user);
+			if(check == false)
+			{
+				userService.register(user);
+			}
+			else
+			{
+				  result.rejectValue("username", "error.alreadyExists", "The User already exists");
+			}
+			
 			return new ModelAndView("login", "user", new User());
 		}
 		

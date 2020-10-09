@@ -24,6 +24,15 @@ public class UserDaoImpl implements UserDao {
     String sql="insert into spacesta.users(username, password, firstname, lastname, email, phonenumber) VALUES ('"+user.getUsername()+"','"+user.getPassword()+"','"+user.getFirstname()+"','"+user.getLastname()+"','"+user.getEmail()+"','"+user.getPhonenumber()+"')";  
     return jdbcTemplate.update(sql);
   }
+  public boolean checkRegister(User user) {
+	  String sql="select * from spacesta.users where username='" + user.getUsername() +"'";
+	  List<User> users = jdbcTemplate.query(sql, new UserMapper());
+	  if(users.size() > 0)
+	  {
+		  return true;
+	  }
+	  return false;
+  }
 
   public User validateUser(User user) {
     String sql = "select * from spacesta.users where username='" + user.getUsername() + "' and password='" + user.getPassword()

@@ -1,4 +1,4 @@
-package com.spacesta.controller;
+package com.spacesta.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

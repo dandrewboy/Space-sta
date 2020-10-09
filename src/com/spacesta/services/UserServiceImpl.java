@@ -18,4 +18,8 @@ public class UserServiceImpl implements UserService {
     return userDao.validateUser(user);
   }
 
+public boolean checkRegister(User user) {
+	return userDao.checkRegister(user);
+}
+
 }

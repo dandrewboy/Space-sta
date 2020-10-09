@@ -7,4 +7,6 @@ public interface UserService {
   int register(User user);
 
   User validateUser(User user);
+  
+  boolean  checkRegister(User user);
 }
