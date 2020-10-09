@@ -42,7 +42,8 @@ public class RegistrationController {
 			}
 			else
 			{
-				  result.rejectValue("username", "error.alreadyExists", "The User already exists");
+				  result.rejectValue("username", "error.user", "The User already exists");
+				  return new ModelAndView("registration", "user", user);
 			}
 			
 			return new ModelAndView("login", "user", new User());
