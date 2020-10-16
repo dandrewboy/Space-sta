@@ -13,10 +13,10 @@ import org.springframework.jdbc.core.RowMapper;
 import com.spacesta.models.User;
 
 public class UserDaoImpl implements UserDao {
-
+ // import data source
   @Autowired
   DataSource datasource;
-
+ // import jbdc template
   @Autowired
   JdbcTemplate jdbcTemplate;
 
@@ -24,21 +24,33 @@ public class UserDaoImpl implements UserDao {
     String sql="insert into spacesta.users(username, password, firstname, lastname, email, phonenumber) VALUES ('"+user.getUsername()+"','"+user.getPassword()+"','"+user.getFirstname()+"','"+user.getLastname()+"','"+user.getEmail()+"','"+user.getPhonenumber()+"')";  
     return jdbcTemplate.update(sql);
   }
+  /*
+   * Method to check if user is registered
+   *
+   */
   public boolean checkRegister(User user) {
+	  // sql query
 	  String sql="select * from spacesta.users where username='" + user.getUsername() +"'";
+	  // make list of users from query
 	  List<User> users = jdbcTemplate.query(sql, new UserMapper());
+	  // if user list size is greater than 0 return true the user is regeistered else return false
 	  if(users.size() > 0)
 	  {
 		  return true;
 	  }
 	  return false;
   }
-
+  /*
+   * Method to validate the user
+   * 
+   */
   public User validateUser(User user) {
+	  // sql query
     String sql = "select * from spacesta.users where username='" + user.getUsername() + "' and password='" + user.getPassword()
         + "'";
+    // make a list of users from the query
     List<User> users = jdbcTemplate.query(sql, new UserMapper());
-
+    // if the user size is greater than 0 return the first user in the list as a model
     return users.size() > 0 ? users.get(0) : null;
   }
 

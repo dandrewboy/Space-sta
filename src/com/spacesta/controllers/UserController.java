@@ -15,24 +15,31 @@ import com.spacesta.services.UserService;
 
 @Controller
 public class UserController {
+	// Call the user business service
 	@Autowired
 	UserService userService;
-	
+	/*
+	 * Method to display login pag
+	 */
 	@RequestMapping(path = "/login", method = RequestMethod.GET) 
 	public ModelAndView displayForm() {
 		return new ModelAndView("login", "user", new User());
 	}
-	
+	/*
+	 * Method to process login attempt
+	 */
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public ModelAndView loginUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		// print username and password in console
 		System.out.println("Username: " + user.getUsername());
 		System.out.println("Password: " + user.getPassword());
+		// validate user in business service and DAO
 		User userVal = userService.validateUser(user);
-
+        // if validation errors return login page
 		if (result.hasFieldErrors("username") || result.hasFieldErrors("password")) {
 			return new ModelAndView("login", "user", user);
 		}
-
+        // if the user is returned from DAO return welcome page
 		else if (null != userVal) {
 			return new ModelAndView("loginMessage", "message", "Welcome " + user.getUsername()+"!");
 		}
@@ -41,6 +48,7 @@ public class UserController {
 		/*else if(user.getUsername().matches("gdavis") && user.getPassword().matches("1234")) {
 			return new ModelAndView("loginMessage", "message", "Welcome " + user.getUsername()+"!");
 		}*/
+		// if user is not returned from DAO, login failed message
 		else {
 			return new ModelAndView("loginMessage", "message", "Login Failed!");
 		}
