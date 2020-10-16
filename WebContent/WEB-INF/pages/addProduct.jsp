@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h2>Add Product</h2>
-		<form:form action="registration" method="post" modelAttribute="user">
+		<form:form action="addproduct" method="post" modelAttribute="product">
 		<table>
 			<tr>
 				<td><form:label path="">Product Name: </form:label></td>
@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<td><form:label path="">Product Price: </form:label></td>
-				<td><form:input path="productPrice"/><form:errors path="productPRice"></form:errors></td>
+				<td><form:input path="productPrice"/><form:errors path="productPrice"></form:errors></td>
 		</table>
 		<input type="submit" value="Submit" /><br>
 	</form:form>

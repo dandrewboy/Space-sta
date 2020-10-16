@@ -14,6 +14,8 @@
                 </td>
                 <td><a href="registration">Register</a>
                 </td>
+                <td><a href="addproduct">Add Product</a>
+                </td>
             </tr>
         </table>
 </body>
