@@ -11,6 +11,7 @@
 <title>Space-sta Products</title>
 </head>
 <body>
+	<!-- Page displays a table of products from the database -->
 	<table style="border: 1px solid black;">
 		<tr>
 			<th style="border: 1px solid black; padding: 5px;"><label>Product Name</label></th>

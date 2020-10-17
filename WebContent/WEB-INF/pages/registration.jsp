@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h2>Registration</h2>
-	
+	<!-- Form used to add/ register users to the database -->
 		<form:form action="registration" method="post" modelAttribute="user">
 		<table>
 			<tr>

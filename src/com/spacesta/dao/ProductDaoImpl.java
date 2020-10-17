@@ -11,11 +11,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import com.spacesta.models.Product;
 
-public class ProductDaoImpl implements ProductDao {
-
+public class ProductDaoImpl implements ProductDao {	
+  //inject the DataSource
   @Autowired
   DataSource datasource;
-
+  //inject the jdbcTemplate
   @Autowired
   JdbcTemplate jdbcTemplate;
 
@@ -42,14 +42,12 @@ public class ProductDaoImpl implements ProductDao {
 	  List<Product> products = jdbcTemplate.query(sql, new ProductMapper());
 	  return products;
   }
-
 }
 
+//use the RowMapper implementation to iterate the ResultSet and add it into the collection.
 class ProductMapper implements RowMapper<Product> {
-
   public Product mapRow(ResultSet rs, int arg1) throws SQLException {
     Product product = new Product();
-
     product.setProductName(rs.getString("productName"));
     product.setProductDescription(rs.getString("productDescription"));
     product.setProductQuantity(rs.getInt("productQuantity"));

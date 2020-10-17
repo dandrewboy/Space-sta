@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h2>Login</h2>
-	
+	<!-- Form used to verify a users credentials -->
 		<form:form action="login" method="post" modelAttribute="user">
 		<table>
 			<tr>
