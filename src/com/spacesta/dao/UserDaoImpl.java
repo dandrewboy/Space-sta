@@ -33,7 +33,7 @@ public class UserDaoImpl implements UserDao {
 	  String sql="select * from spacesta.users where username='" + user.getUsername() +"'";
 	  // make list of users from query
 	  List<User> users = jdbcTemplate.query(sql, new UserMapper());
-	  // if user list size is greater than 0 return true the user is regeistered else return false
+	  // if user list size is greater than 0 return true the user is registered else return false
 	  if(users.size() > 0)
 	  {
 		  return true;
@@ -56,6 +56,7 @@ public class UserDaoImpl implements UserDao {
 
 }
 
+//use the RowMapper implementation to iterate the ResultSet and add it into the collection.
 class UserMapper implements RowMapper<User> {
 
   public User mapRow(ResultSet rs, int arg1) throws SQLException {

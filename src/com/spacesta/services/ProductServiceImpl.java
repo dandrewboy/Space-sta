@@ -8,10 +8,16 @@ import com.spacesta.dao.ProductDao;
 import com.spacesta.models.Product;
 
 public class ProductServiceImpl implements ProductService {
+	//inject the product DAO
+	@Autowired
+	public ProductDao productDao;
 
-  @Autowired
-  public ProductDao productDao;
+	//used to add a product to the database
+	public int registerProduct(Product product) {
+		return productDao.registerProduct(product);
+	}
 
+<<<<<<< HEAD
   public int registerProduct(Product product) {
     return productDao.registerProduct(product);
   }
@@ -19,9 +25,18 @@ public class ProductServiceImpl implements ProductService {
 public boolean checkProduct(Product product) {
 	return productDao.checkProduct(product);
 }
+=======
 
-public List<Product> getProducts() {
-	return productDao.getProducts();
-}
+	//used to verify if the product name already exists within the database
+	public boolean checkProduct(Product product) {
+		return productDao.checkProduct(product);
+	}
+>>>>>>> 6bbad74c1783318d562a7eb881a4034aced7cff2
+
+
+	//used to get all the products from the database and return a list of products.
+	public List<Product> getProducts() {
+		return productDao.getProducts();
+	}
 
 }

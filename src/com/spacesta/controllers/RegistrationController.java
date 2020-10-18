@@ -15,26 +15,33 @@ import com.spacesta.services.UserService;
 
 @Controller
 public class RegistrationController {
+	//inject the user service
 	@Autowired
 	public UserService userService;
 	
+	//used to GET the registration page based on user request
 	@RequestMapping(path = "/registration", method = RequestMethod.GET) 
 	public ModelAndView displayForm() {
 		return new ModelAndView("registration", "user", new User());
 	}
 	
+	//method is called once the reg form is submitted (POST).
 	@RequestMapping(path = "/registration", method = RequestMethod.POST)
 	public ModelAndView addUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		System.out.println("Username: " + user.getUsername());
 		System.out.println("Password: " + user.getPassword());
 
+		//verify the form doesn't have errors and if it does, return to reg page with errors.
 		if (result.hasErrors()) {
 		  
 			return new ModelAndView("registration", "user", user);
 		}
 		
-		//This is temp (used for testing)
+		//No form errors found.
 		else {
+			/*verify the username doesn't already exist and if it doesn't register the user, 
+			 * else return an error notifying the user.
+			 */
 			boolean check = userService.checkRegister(user);
 			if(check == false)
 			{
