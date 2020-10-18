@@ -15,7 +15,7 @@ public class ProductServiceImpl implements ProductService {
   public int registerProduct(Product product) {
     return productDao.registerProduct(product);
   }
-
+ 
 public boolean checkProduct(Product product) {
 	return productDao.checkProduct(product);
 }
