@@ -11,4 +11,10 @@ public interface ProductDao {
   boolean checkProduct(Product product);
   
   List<Product> getProducts();
+  
+  int deleteProduct(int prodId);
+  
+  Product getProduct(int prodId);
+  
+  public int updateProduct(Product product);
 }

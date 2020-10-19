@@ -25,7 +25,7 @@ public class Product {
 	
 	public Product() {
 		super();
-		this.prodId = 0;
+		this.prodId = null;
 		this.productName = "";
 		this.productDescription = "";
 		this.productQuantity = 0;

@@ -7,10 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class HomeController {
-	
-	/*
-	 * Method to display home page
-	 */
 
 	@RequestMapping("/home")
 	public ModelAndView home()

@@ -42,12 +42,33 @@ public class ProductDaoImpl implements ProductDao {
 	  List<Product> products = jdbcTemplate.query(sql, new ProductMapper());
 	  return products;
   }
+  
+  
+  //Checks if the product name already exists in the database. 
+  public Product getProduct(int prodId) {
+	  String sql="select * from spacesta.products where prodId="+ prodId;
+	  return jdbcTemplate.query(sql, new ProductMapper()).get(0);
+  }
+  
+  //Deletes a product in the database.
+  public int deleteProduct(int prodId) {
+    String sql="DELETE FROM spacesta.products WHERE prodId = "+ prodId;  
+    return jdbcTemplate.update(sql);
+  }
+  
+  //Updates a product in the database.
+  public int updateProduct(Product product) {
+    String sql="UPDATE spacesta.products SET productName=?, productDescription=?, productQuantity=?, productPrice=? WHERE prodId = "+ product.getProdId();  
+    return jdbcTemplate.update(sql, product.getProductName(), product.getProductDescription(),product.getProductQuantity(),product.getProductPrice());
+  }
+  
 }
 
 //use the RowMapper implementation to iterate the ResultSet and add it into the collection.
 class ProductMapper implements RowMapper<Product> {
   public Product mapRow(ResultSet rs, int arg1) throws SQLException {
     Product product = new Product();
+    product.setProdId(rs.getInt("prodId"));
     product.setProductName(rs.getString("productName"));
     product.setProductDescription(rs.getString("productDescription"));
     product.setProductQuantity(rs.getInt("productQuantity"));

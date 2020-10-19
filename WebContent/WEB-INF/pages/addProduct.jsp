@@ -14,8 +14,9 @@
 </head>
 <body>
 	<!-- Form used to submit products to the database -->
-	<h2>Add Product</h2>
+	<h2>Product Form</h2>
 		<form:form action="addproduct" method="post" modelAttribute="product">
+		<form:hidden path="prodId"/>
 		<table>
 			<tr>
 				<td><form:label path="">Product Name: </form:label></td>

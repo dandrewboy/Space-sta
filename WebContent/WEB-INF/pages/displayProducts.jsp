@@ -18,6 +18,7 @@
 			<th style="border: 1px solid black; padding: 5px;"><label>Qty</label></th>
 			<th style="border: 1px solid black; padding: 5px;"><label>Price</label></th>
 			<th style="border: 1px solid black; padding: 5px;"><label>Desc</label></th>
+			<th style="border: 1px solid black; padding: 5px;"><label>Action</label></th>
 		</tr>
 			<c:forEach var="product" items="${products}" varStatus="status">
 				<tr>
@@ -25,8 +26,19 @@
 				<td style="border: 1px solid black; padding: 5px;"><label>${product.productQuantity}</label></td>
 				<td style="border: 1px solid black; padding: 5px;"><label>${product.productPrice}</label></td>
 				<td style="border: 1px solid black; padding: 5px;"><label>${product.productDescription}</label></td>
+				<td style="border: 1px solid black; padding: 5px;">
+					<c:url var="deleteProd" value="/deleteProd">
+					<c:param name="prodId" value="${product.prodId}"/>
+					</c:url>
+					<c:url var="updateProd" value="/updateProd">
+					<c:param name="prodId" value="${product.prodId}"/>
+					</c:url>
+					<a href="${updateProd}">Update</a>
+					<a href="${deleteProd}">Delete</a>
+				</td>
 				</tr>
 			</c:forEach>
 	</table>
+	Add a new product? <a href="addproduct">Click here</a>!
 </body>
 </html>

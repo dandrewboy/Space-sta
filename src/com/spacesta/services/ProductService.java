@@ -10,4 +10,10 @@ public interface ProductService {
   boolean  checkProduct(Product product);
   
   List<Product> getProducts();
+  
+  Product getProduct(int prodId);
+  
+  int deleteProduct(int prodId);
+  
+  public int updateProduct(Product product);
 }
