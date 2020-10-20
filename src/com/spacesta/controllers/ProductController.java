@@ -77,4 +77,10 @@ public class ProductController {
 		return new ModelAndView("displayProducts", "products", productService.getProducts());
 	}
 	
+	//used to GET the add products page
+	@RequestMapping(path = "/getProducts", method = RequestMethod.GET) 
+	public ModelAndView displayProducts() {
+		return new ModelAndView("displayProducts", "products", productService.getProducts());
+	}
+	
 }

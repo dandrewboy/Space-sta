@@ -28,6 +28,9 @@
       <li class="nav-item">
         <a class="nav-link" href="registration">Register</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="getProducts">Products</a>
+      </li>
     </ul>
   </div>
 </nav>
