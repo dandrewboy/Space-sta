@@ -8,8 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class HomeController {
 
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public ModelAndView home()
+	{
+		return new ModelAndView("home");
+		
+	}
+	
+	@RequestMapping("/home")
+	public ModelAndView homeMap()
 	{
 		return new ModelAndView("home");
 		
