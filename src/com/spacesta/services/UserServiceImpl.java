@@ -1,10 +1,17 @@
 package com.spacesta.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.spacesta.dao.UserDao;
 import com.spacesta.models.User;
 
+@RestController()
+@RequestMapping("/service")
 public class UserServiceImpl implements UserService {
 
   @Autowired
@@ -26,6 +33,12 @@ public class UserServiceImpl implements UserService {
     */
 public boolean checkRegister(User user) {
 	return userDao.checkRegister(user);
+}
+
+//Get a list of users from the database
+@GetMapping("/users")
+public List<User> getUsers(){
+	return userDao.getUsers();
 }
 
 }

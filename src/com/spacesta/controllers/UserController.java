@@ -55,4 +55,12 @@ public class UserController {
 		
 	}
 	
+	//Used to display the table of users (uses jQuery to create the table)
+	@RequestMapping("/users")
+	public ModelAndView getUsers()
+	{
+		return new ModelAndView("displayUsers");
+		
+	}
+	
 }

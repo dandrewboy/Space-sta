@@ -1,5 +1,6 @@
 package com.spacesta.services;
 
+
 import com.spacesta.models.User;
 
 public interface UserService {
@@ -9,4 +10,5 @@ public interface UserService {
   User validateUser(User user);
   
   boolean  checkRegister(User user);
+  
 }

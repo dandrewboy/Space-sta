@@ -33,7 +33,6 @@
 	</bean>
 	
 	<!-- Register the SpringBeans -->
-    <bean id="userService" class="com.spacesta.services.UserServiceImpl" />
     <bean id="userDao" class="com.spacesta.dao.UserDaoImpl" />
     <bean id="productService" class="com.spacesta.services.ProductServiceImpl" />
     <bean id="productDao" class="com.spacesta.dao.ProductDaoImpl" />

@@ -53,6 +53,14 @@ public class UserDaoImpl implements UserDao {
     // if the user size is greater than 0 return the first user in the list as a model
     return users.size() > 0 ? users.get(0) : null;
   }
+  
+  //Returns a list of users in the database.
+  public List<User> getUsers() {
+	  String sql="select * from spacesta.users";
+	  List<User> users = jdbcTemplate.query(sql, new UserMapper());
+	  return users;
+  }  
+  
 
 }
 
