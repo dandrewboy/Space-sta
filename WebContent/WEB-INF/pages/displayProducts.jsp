@@ -34,7 +34,13 @@
 					<c:param name="prodId" value="${product.prodId}"/>
 					</c:url>
 					<a href="${updateProd}">Update</a>
-					<a href="${deleteProd}">Delete</a>
+					<a href="${deleteProd}">Delete
+					<script type="text/javascript" >
+					function deleteConfirmation() {
+						confirm("WARNING! n\This will permanentley remove this product from the database. n\Are you sure you wish to do this?")
+					}
+					</script>
+					</a>
 				</td>
 				</tr>
 			</c:forEach>
