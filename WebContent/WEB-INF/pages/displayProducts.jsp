@@ -9,17 +9,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Space-sta Products</title>
-<script type="text/javascript" >
-	function deleteConfirmation() {
-		var result = confirm("WARNING! \n This will permanentley remove this product from the database. \n Are you sure you wish to do this?");
-		if (result){
-			return true;
-		}
-		else{
-			return false;
-			}
-		}
-</script>
 </head>
 <body>
 	<!-- Page displays a table of products from the database -->
@@ -45,7 +34,13 @@
 					<c:param name="prodId" value="${product.prodId}"/>
 					</c:url>
 					<a href="${updateProd}">Update</a>
-					<a href="${deleteProd}" onclick="return deleteConfirmation()">Delete</a>
+					<a href="${deleteProd}">Delete
+					<script type="text/javascript" >
+					function deleteConfirmation() {
+						confirm("WARNING! n\This will permanentley remove this product from the database. n\Are you sure you wish to do this?")
+					}
+					</script>
+					</a>
 				</td>
 				</tr>
 			</c:forEach>
