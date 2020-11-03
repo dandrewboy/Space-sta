@@ -18,7 +18,7 @@
 	function getUsers(){
 		$.ajax({
 					type: "GET",
-					url: "/TestingProject/service/users",
+					url: "/Spacesta/service/users",
 					dataType: "json",
 					success: function(data){
 						// Display users in the jQuery Data Table
